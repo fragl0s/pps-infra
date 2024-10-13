@@ -1,0 +1,16 @@
+---
+http:
+  routers:
+    securitytxt-router:
+      rule: "PathPrefix(`/.well-known/security.txt`)"
+      priority: 99999
+      entryPoints:
+        - "https"
+      middlewares: ["securitytxt"]
+      service: noop@internal
+
+  middlewares:
+    securitytxt:
+      redirectregex:
+        regex: "^https?://([^/]*)/.well-known/security.txt$"
+        replacement: "https://www.pirateparty.ch/.well-known/security.txt"

@@ -15,9 +15,12 @@
 - name: Traefik hsts-middleware
   become: true
   copy:
-    src: files/traefik/tls-middlewares.yml
-    dest: /var/srv/traefik/config/tls-middlewares.yml
+    src: "files/traefik/{{ item }}.yml"
+    dest: "/var/srv/traefik/config/{{ item }}.yml"
     mode: '0644'
+  loop:
+   - tls-middlewares
+   - security-txt
 
 - name: Traefik
   become: true
