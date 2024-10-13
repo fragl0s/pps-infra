@@ -62,7 +62,9 @@
       "traefik.http.routers.memberscivi.rule": "Host(`members-crm.piratenpartei.ch`)"
       "traefik.http.routers.memberscivi.tls": "true"
       "traefik.http.routers.memberscivi.tls.certresolver": "le"
-      "traefik.http.routers.memberscivi.middlewares": "security-headers@file"
+      "traefik.http.middlewares.memberscivi.chain.middlewares": "security-headers@file,memberscivi_auth"
+      "traefik.http.middlewares.memberscivi_auth.digestauth.usersfile": "/config/members-crm.pwd"
+      "traefik.http.routers.memberscivi.middlewares": "memberscivi"
     state: started
     pull: true
     networks_cli_compatible: true
