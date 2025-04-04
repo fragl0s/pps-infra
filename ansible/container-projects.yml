@@ -64,6 +64,7 @@
       REDMINE_DB_PASSWORD="{{ lookup('hashi_vault', 'secret=secret/projects/mysql/password:value') }}"
       REDMINE_DB_USERNAME="projects"
       REDMINE_PLUGINS_MIGRATE=true
+      SECRET_KEY_BASE="{{ lookup('hashi_vault', 'secret=secret/projects/rails/secret:value') }}"
 
 - name: start backup container for first mariadb container
   become: true
