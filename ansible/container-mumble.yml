@@ -45,7 +45,7 @@
 - name: start mariadb container
   become: true
   docker_container:
-    image: "mariadb:10.6"
+    image: "mariadb:10.11"
     name: "mumble-mariadb"
     state: started
     restart_policy: always

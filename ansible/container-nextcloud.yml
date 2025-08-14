@@ -9,7 +9,7 @@
 - name: start nextcloud mariadb container
   become: true
   docker_container:
-    image: "mariadb:10.6"
+    image: "mariadb:10.11"
     name: "nextcloud-mysql"
     state: started
     restart_policy: always
@@ -122,7 +122,7 @@
 - name: start onlyoffice mariadb
   become: true
   docker_container:
-    image: "mariadb:10.6"
+    image: "mariadb:10.11"
     name: "onlyoffice-mariadb"
     state: started
     restart_policy: always

@@ -9,7 +9,7 @@
 - name: start OTRS mysql container
   become: true
   docker_container:
-    image: "mariadb:10.6"
+    image: "mariadb:10.11"
     name: "otrs-mysql"
     state: started
     restart_policy: always
