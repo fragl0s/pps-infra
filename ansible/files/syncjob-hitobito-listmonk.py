@@ -5,11 +5,13 @@ from requests.auth import HTTPBasicAuth
 
 # ==== variables ====
 # The hitobito token:
-h_token = "abcd"
+h_token = "{{ lookup('hashi_vault', 'secret=secret/hitobito/api/listmonk-token:value') }}"
+# The hitobito group number
+h_no = "52"
 # The hitobito API endpoint with group number:
-h_url = "https://piraten.hitobito.com/de/groups/52/people.json?token=" + h_token
+h_url = "https://piraten.hitobito.com/de/groups/" + h_no + "/people.json?token=" + h_token
 # The Listmonk token for the user "hitobito-api":
-l_token = "1234"
+l_token = "{{ lookup('hashi_vault', 'secret=secret/listmonk/api/hitobito-api:value') }}"
 # The Listmonk API endpoint:
 l_url = "https://newsletter.piratenpartei.ch/api/subscribers"
 # The Listmonk newsletter list number
